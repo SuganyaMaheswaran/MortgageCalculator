@@ -1,27 +1,97 @@
-# AngularApp
+# Mortgage Calculator
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.11.
+A responsive Angular application for calculating mortgage repayment options, including standard repayment and interest-only scenarios. The app provides estimated monthly repayment, total repayment, and interest amounts based on user-entered loan details.
 
-## Development server
+## Overview
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+This project is built with Angular 18 and uses server-side rendering (SSR) with Express. It is designed to help users quickly estimate mortgage costs before applying for a loan.
 
-## Code scaffolding
+### Included features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Mortgage amount input
+- Mortgage term input
+- Interest rate input
+- Repayment or interest-only selection
+- Monthly payment estimate
+- Total repayment summary
+- Interest payment summary
+- Angular Material styling
 
-## Build
+## Tech stack
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Angular 18
+- TypeScript
+- Angular Material
+- RxJS
+- Express
+- Angular SSR
 
-## Running unit tests
+## Prerequisites
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Before running the app, ensure you have the following installed:
 
-## Running end-to-end tests
+- Node.js 18 or later
+- npm 9 or later
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Local development
 
-## Further help
+1. Install dependencies:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+   npm install
+
+2. Start the development server:
+
+   npm start
+
+3. Open the app in your browser:
+
+   http://localhost:4200
+
+The Angular dev server supports hot reloading while you make changes.
+
+## Production build
+
+To build the application for production:
+
+npm run build
+
+The build output is generated into the dist/angular-app directory.
+
+## Run the production SSR server
+
+After building, start the SSR server with:
+
+npm run serve:ssr:angularApp
+
+The server listens on port 4000 by default.
+
+To override the port:
+
+PORT=8080 npm run serve:ssr:angularApp
+
+## Docker
+
+Build the Docker image:
+
+docker build -t mortgage-calculator .
+
+Run the container:
+
+docker run -p 4000:4000 mortgage-calculator
+
+The app will be available at:
+
+http://localhost:4000
+
+## Project structure
+
+- src/app - application components and logic
+- src/assets - static assets
+- public - public static files
+- server.ts - Express SSR entry point
+- angular.json - Angular project configuration
+- package.json - scripts and dependencies
+
+## Notes
+
+This app is a mortgage calculator front-end and does not persist data to a backend. The calculations are performed in the browser and the SSR server serves the generated Angular app.
